@@ -1,6 +1,8 @@
-package dev.DTorquato.CadastroDeNinjas;
+package dev.DTorquato.CadastroDeNinjas.Ninjas;
 
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -9,10 +11,12 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String nome;
     private String email;
     private int idade;
+    private List<MissoesModel> missoes;
 
 
     public NinjaModel(String nome, String email, int idade) {
