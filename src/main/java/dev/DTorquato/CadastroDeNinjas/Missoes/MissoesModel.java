@@ -3,6 +3,8 @@ package dev.DTorquato.CadastroDeNinjas.Missoes;
 import dev.DTorquato.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_Missoes")
 
@@ -13,7 +15,8 @@ public class MissoesModel {
     private String nome;
     private  char rank;
 
-    private NinjaModel ninja;
+    @OneToMany(mappedBy = "missoes")
+    private List<NinjaModel> ninjas;
 
     public MissoesModel() {
     }
