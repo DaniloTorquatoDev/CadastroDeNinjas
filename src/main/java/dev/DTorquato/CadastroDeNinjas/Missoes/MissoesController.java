@@ -22,7 +22,7 @@ public class MissoesController {
     }
 
     @DeleteMapping("/deletar")
-    public String adeletarMissao(){
+    public String deletarMissao(){
         return "Missao deletada";
     }
 
