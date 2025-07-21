@@ -1,8 +1,7 @@
 package dev.DTorquato.CadastroDeNinjas.Ninjas;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.persistence.PostUpdate;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
@@ -12,5 +11,33 @@ public class NinjaController {
     public String boasVindas() {
         return "Essa é minha primeira mensagem nessa rota";
     }
+
+// Adicionar ninja (CREATE)
+    @PostMapping("/criar")
+    public String criarNinja(){
+        return "Ninja criado";
+    }
+// Mostrar todos os ninjas
+    @GetMapping("/todos")
+    public String mostrarTodosOsNinjas(){
+        return "Mostar todos os ninjas";
+    }
+    //Mostrar Ninja por ID (CREATE)
+    @GetMapping("/todosID")
+    public String mostrarTodosOsNinjasPorId(){
+        return "Mostar ninja por id";
+}
+
+// Alterar dados dos ninjas (UPDATE)
+    @PutMapping("/alterarID")
+    public String alterarNinjaPorId(){
+        return "Alterar ninja por id";
+    }
+// Deletar Ninja (DELETE)
+    @DeleteMapping("/deletarId")
+    public String deletarNinjaPorId(){
+        return "Deletar ninja por id";
+    }
+
 
 }
