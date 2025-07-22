@@ -1,5 +1,6 @@
 package dev.DTorquato.CadastroDeNinjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.DTorquato.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,6 +20,7 @@ public class MissoesModel {
     private char rank;
 
     @OneToMany(mappedBy = "missoes")
+    @JsonIgnore
     private List<NinjaModel> ninjas;
 
 
