@@ -2,18 +2,25 @@ package dev.DTorquato.CadastroDeNinjas.Missoes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("missoes")
 public class MissoesController {
+    private MissoesService missoesService;
+
+    public MissoesController(MissoesService missoesService){
+        this.missoesService = missoesService;
+    }
 
     @GetMapping("/listar")
-    public String mostrarMissoes() {
-        return "Misões listadas";
+    public List<MissoesModel> listarMissoes() {
+        return missoesService.listarMissoes();
     }
 
     @PostMapping("/criar")
-    public String criarMissao() {
-        return "Missao criada";
+    public MissoesModel criarMissao(@RequestBody MissoesModel missoes) {
+        return missoesService.criarMissao(missoes);
     }
 
     @PutMapping("/alterar")
@@ -21,9 +28,11 @@ public class MissoesController {
         return "Missao alterada";
     }
 
-    @DeleteMapping("/deletar")
-    public String deletarMissao(){
-        return "Missao deletada";
+    @DeleteMapping("/deletar/{id}")
+    public String deletarMissaoPorId(@PathVariable Long id){
+        missoesService.deletarMissaoPorId(id);
+
+        return "Missao deletada com sucesso";
     }
 
 
